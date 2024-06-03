@@ -1,11 +1,12 @@
 import { Injectable } from '@nestjs/common';
-import { PrismaClient, User } from '@prisma/client';
+import { PrismaClient } from '@prisma/client';
+import { UserDto } from '@fullstack-example/shared-lib';
 
 const prisma = new PrismaClient();
 
 @Injectable()
 export class AppService {
-  getData(): Promise<User[]> {
+  async getData(): Promise<UserDto[]> {
     return prisma.user.findMany();
   }
 }
