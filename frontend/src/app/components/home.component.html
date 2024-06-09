@@ -1,0 +1,9 @@
+@if(users | async) {
+  <ul>
+    @for(user of users | async; track user.id) {
+      <li class="text-amber-800">{{ user.name }}</li>
+    }
+  </ul>
+} @else {
+  <p class="text-rose-600">data not found</p>
+}
